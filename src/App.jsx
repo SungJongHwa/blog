@@ -1,75 +1,148 @@
-import './App.css';
-import styled from 'styled-components';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-const StyledApp = styled.div`
-  font-family: 'Roboto', sans-serif;
+const StyledApp = styled(motion.div)`
+  background-color: #fff;
+  font-family: "Noto Sans KR", sans-serif;
   text-align: center;
   padding: 20px;
-  background-color: #f0f0f0;
-  border: 2px solid #007bff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 `;
 
 const Title = styled.h1`
-  color: #333;
-  font-size: 48px;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  color: #ff6f61;
+  font-size: 30px;
+  margin-bottom: 10px;
 `;
 
 const SubTitle = styled.div`
-  color: #555;
-  font-size: 24px;
+  color: #ff6f61;
+  font-size: 18px;
   margin-bottom: 20px;
 `;
 
 const Description = styled.p`
   color: #777;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
 `;
 
 const Link = styled.a`
-  color: #007bff;
+  color: #ff6f61;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 18px;
   transition: color 0.3s ease-in-out;
 
   &:hover {
-    color: #0056b3;
+    color: #c70039;
   }
 `;
 
 const Button = styled.button`
-  background-color: #007bff;
+  background-color: #ff6f61;
   color: #fff;
   border: none;
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #c70039;
   }
 `;
 
+const SocialMediaList = styled.ul`
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+`;
+
+const SocialMediaItem = styled.li`
+  margin: 0 10px;
+`;
+
+const SocialMediaLink = styled.a`
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ff6f61;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #c70039;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+`;
+
+const ScheduleButton = styled(Button)`
+  margin-top: 20px;
+`;
+
 function App() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  const handleCreateSchedule = () => {
+    // 여행 일정 생성 로직 구현
+    alert("여행 일정이 생성되었습니다!");
+  };
+
   return (
     <StyledApp>
-      <Title>안녕하세요, 시율입니다!</Title>
+      <Title>안녕하세요, 시율입니다.</Title>
       <SubTitle>여러분을 환영합니다.</SubTitle>
       <Description>
-        저의 블로그에 오신 것을 환영합니다. 블로그에는 다양한 주제로 포스트를
-        작성하고 있습니다. 놀러 오세요!
+        저는 여행, 일상, 생각, 맛집 등 다양한 주제의 흥미로운 이야기를 담은
+        블로그를 운영하고 있어요. 함께 즐거운 시간 보내요!
       </Description>
       <br />
       <Link href="https://m.blog.naver.com/octlolo?fbclid=PAAaZy1fW4qxbt3j7TajpKOTSRtvmeMpkBaa_HhOBgsERsK_GhouXg6y1Tmjk_aem_AXHfwpVmrQv841DEapvRUUS3MchNTxMnHEH_qSjR9SrSd0gJqZ0E58fkEaSS6dBUnXM&tab=1">
-        시율's의 블로그 바로가기
+        시율님의 블로그 바로가기
       </Link>
+      <br /> <br /> <br />
+      <hr />
+      <h2>SNS</h2>
+      <br />
+      <SocialMediaList>
+        <SocialMediaItem>
+          <SocialMediaLink href="https://www.facebook.com/profile.php?id=100003778632929">
+            <img src="https://www.example.com/facebook.png" alt="Facebook" />
+          </SocialMediaLink>
+        </SocialMediaItem>
+        <SocialMediaItem>
+          <SocialMediaLink href="https://www.instagram.com/1oct._/">
+            <img src="https://www.example.com/instagram.png" alt="Instagram" />
+          </SocialMediaLink>
+        </SocialMediaItem>
+      </SocialMediaList>
+      <br />
+      <hr />
+      <br />
+      {/* <ScheduleButton onClick={handleCreateSchedule}>
+        여행 일정 생성하기
+      </ScheduleButton> */}
     </StyledApp>
   );
 }
