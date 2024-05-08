@@ -30,6 +30,10 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: start;
+
+  @media (max-width: 768px) {
+    margin-top: 61.5px;
+  }
 `;
 
 const Header = styled.div`
