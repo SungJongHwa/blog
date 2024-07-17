@@ -36,20 +36,20 @@ const Container = styled.div`
   }
 `;
 
-const Header = styled.div`
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-  background-color: #20232a;
-  font-size: 2em;
-  font-weight: bold;
-  border-bottom: 3px solid #61dafb;
+// const Header = styled.div`
+//   width: 100%;
+//   padding: 20px;
+//   text-align: center;
+//   background-color: #20232a;
+//   font-size: 2em;
+//   font-weight: bold;
+//   border-bottom: 3px solid #61dafb;
 
-  @media (max-width: 768px) {
-    font-size: 1.5em;
-    padding: 15px;
-  }
-`;
+//   @media (max-width: 768px) {
+//     font-size: 1.5em;
+//     padding: 15px;
+//   }
+// `;
 
 const Content = styled.div`
   display: flex;

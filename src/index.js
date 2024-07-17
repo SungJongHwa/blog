@@ -1,13 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RecoilRoot } from "recoil";
 import App from "./App";
-import Header from "./component/Header";
+
+import { BrowserRouter } from "react-router-dom";
+import { RecoilRoot } from "recoil";
+// import Header from "./pages/component/Header";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <RecoilRoot>
-    <Header />
-    <App />
-  </RecoilRoot>
+  <BrowserRouter>
+    <RecoilRoot>
+      {/* <Header /> */}
+      <App />
+    </RecoilRoot>
+  </BrowserRouter>
 );

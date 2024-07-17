@@ -1,0 +1,12 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  background-color: black;
+  font-size: 15px;
+  /* color: #333; */
+  font-family: "roboto", "Noto Sans CJK KR", Arial, sans-serif;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased; /*letter-spacing:-1px*/
+}
