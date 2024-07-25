@@ -3,30 +3,27 @@ import styled from "styled-components";
 import { Link as ScrollLink, Element as ScrollElement } from "react-scroll";
 
 const skills = [
+  "HTML",
+  "CSS",
+  "Jquery",
   "JavaScript",
   "TypeScript",
   "React",
   "Vue",
+  "Styled-components",
+  "CI/CD",
+  "Webpack",
+  "Babel",
   "Git",
   "Github",
   "GitLab",
-  "Jquery",
-  "HTML",
-  "CSS",
-  "Webpack",
-  "Babel",
   "Slack",
   "Jira",
   "Confluence",
-  "Styled-components",
   "Discord",
 ];
 
 const SkillsSection = () => {
-  const half = Math.ceil(skills.length / 2);
-  const firstHalf = skills.slice(0, half);
-  const secondHalf = skills.slice(half);
-
   return (
     <ScrollElement name="skills">
       <SkillsContainer>
@@ -34,19 +31,11 @@ const SkillsSection = () => {
         <SkillsWrapper>
           <SkillsSlider>
             <SkillRow>
-              {firstHalf.map((skill, index) => (
+              {skills.map((skill, index) => (
                 <SkillItem key={index}>{skill}</SkillItem>
               ))}
-              {firstHalf.map((skill, index) => (
-                <SkillItem key={index + firstHalf.length}>{skill}</SkillItem>
-              ))}
-            </SkillRow>
-            <SkillRow>
-              {secondHalf.map((skill, index) => (
-                <SkillItem key={index}>{skill}</SkillItem>
-              ))}
-              {secondHalf.map((skill, index) => (
-                <SkillItem key={index + secondHalf.length}>{skill}</SkillItem>
+              {skills.map((skill, index) => (
+                <SkillItem key={index + skills.length}>{skill}</SkillItem>
               ))}
             </SkillRow>
           </SkillsSlider>
@@ -59,7 +48,7 @@ const SkillsSection = () => {
 export default SkillsSection;
 
 const SkillsContainer = styled.div`
-  padding: 20px 20px;
+  padding: 20px;
   text-align: center;
   color: #ffffff;
   margin-bottom: 20px;
@@ -85,40 +74,29 @@ const SkillsWrapper = styled.div`
 
 const SkillsSlider = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   height: 100%;
+  overflow: hidden;
 `;
 
 const SkillRow = styled.div`
   display: flex;
   flex-wrap: nowrap;
   white-space: nowrap;
-  animation: ${({ reverse }) => (reverse ? "scroll-reverse" : "scroll")} 10s
-    linear infinite;
+  animation: scroll 45s linear infinite;
 
   @keyframes scroll {
     0% {
-      transform: translateX(0);
+      transform: translateX(0%);
     }
     100% {
       transform: translateX(-50%);
-    }
-  }
-
-  @keyframes scroll-reverse {
-    0% {
-      transform: translateX(-50%);
-    }
-    100% {
-      transform: translateX(0);
     }
   }
 `;
 
 const SkillItem = styled.div`
   display: inline-block;
-  margin: 20px 60px;
+  margin: 0 60px;
   font-size: 1.5rem;
   font-weight: bold;
   color: #ffffff;
