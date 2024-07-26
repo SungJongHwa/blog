@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link as ScrollLink, Element as ScrollElement } from "react-scroll";
 
-const skills = [
+const skills1 = [
   "HTML",
   "CSS",
   "Jquery",
@@ -11,6 +11,11 @@ const skills = [
   "React",
   "Vue",
   "Styled-components",
+  "Recoil",
+  "Mobx",
+];
+
+const skills2 = [
   "CI/CD",
   "Webpack",
   "Babel",
@@ -31,11 +36,21 @@ const SkillsSection = () => {
         <SkillsWrapper>
           <SkillsSlider>
             <SkillRow>
-              {skills.map((skill, index) => (
+              {skills1.map((skill, index) => (
                 <SkillItem key={index}>{skill}</SkillItem>
               ))}
-              {skills.map((skill, index) => (
-                <SkillItem key={index + skills.length}>{skill}</SkillItem>
+              {skills1.map((skill, index) => (
+                <SkillItem key={index + skills1.length}>{skill}</SkillItem>
+              ))}
+            </SkillRow>
+          </SkillsSlider>
+          <SkillsSlider>
+            <SkillRow>
+              {skills2.map((skill, index) => (
+                <SkillItem key={index}>{skill}</SkillItem>
+              ))}
+              {skills2.map((skill, index) => (
+                <SkillItem key={index + skills2.length}>{skill}</SkillItem>
               ))}
             </SkillRow>
           </SkillsSlider>
@@ -66,7 +81,7 @@ const SectionTitle = styled.h2`
 const SkillsWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 100px;
+  height: 200px; /* Adjusted to accommodate two rows */
   overflow: hidden;
   margin-top: 40px;
   margin-bottom: 20px;
@@ -74,7 +89,7 @@ const SkillsWrapper = styled.div`
 
 const SkillsSlider = styled.div`
   display: flex;
-  height: 100%;
+  height: 50%; /* Adjusted for two rows */
   overflow: hidden;
 `;
 

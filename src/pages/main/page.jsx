@@ -32,7 +32,6 @@ const MainPage = () => {
           ) : (
             <MainContainer>
               <ScrollLinkContainer />
-
               <Sections>
                 <IntroductionSection />
                 <CareerSection />
@@ -54,7 +53,6 @@ const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background: black;
-  // background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: white;
   padding: 20px;
   transition: all 0.3s ease-in-out;
@@ -63,5 +61,13 @@ const MainContainer = styled.div`
 
 const Sections = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Add this line */
   transition: all 0.3s ease-in-out;
+
+  > * {
+    margin: 0 auto; /* Add this line to center each section */
+    width: 80%; /* Adjust the width as needed */
+  }
 `;

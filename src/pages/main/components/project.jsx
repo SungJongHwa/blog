@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Element as ScrollElement } from "react-scroll";
+import { useSpring, animated } from "react-spring";
+import { useInView } from "react-intersection-observer";
 
 const projects = [
   {
@@ -17,6 +19,27 @@ const projects = [
     skills: "Vue, Vuex, Vuetify",
     contribution: "60%",
   },
+  {
+    title: "프로젝트 C",
+    period: "2021.01 - 2021.06",
+    description: "모바일 앱 개발",
+    skills: "Flutter, Dart",
+    contribution: "70%",
+  },
+  {
+    title: "프로젝트 D",
+    period: "2020.07 - 2020.12",
+    description: "데이터 분석 플랫폼 개발",
+    skills: "Python, Pandas, Django",
+    contribution: "90%",
+  },
+  {
+    title: "프로젝트 E",
+    period: "2020.01 - 2020.06",
+    description: "e-커머스 사이트 개발",
+    skills: "Magento, PHP, MySQL",
+    contribution: "85%",
+  },
 ];
 
 const ProjectSection = () => {
@@ -26,20 +49,33 @@ const ProjectSection = () => {
         <SectionTitle>프로젝트</SectionTitle>
         <SectionContent>
           {projects.map((project, index) => (
-            <Project key={index}>
-              <ProjectTitle>{project.title}</ProjectTitle>
-              <ProjectDetails>
-                <DetailItem>이름: {project.title}</DetailItem>
-                <DetailItem>참여기간: {project.period}</DetailItem>
-                <DetailItem>내용: {project.description}</DetailItem>
-                <DetailItem>사용스킬: {project.skills}</DetailItem>
-                <DetailItem>기여도: {project.contribution}</DetailItem>
-              </ProjectDetails>
-            </Project>
+            <InViewProject key={index} project={project} />
           ))}
         </SectionContent>
       </Section>
     </ScrollElement>
+  );
+};
+
+const InViewProject = ({ project }) => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const props = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateY(0px)" : "translateY(50px)",
+    config: { duration: 500 },
+  });
+
+  return (
+    <AnimatedProject ref={ref} style={props}>
+      <ProjectTitle>{project.title}</ProjectTitle>
+      <ProjectDetails>
+        <DetailItem>이름: {project.title}</DetailItem>
+        <DetailItem>참여기간: {project.period}</DetailItem>
+        <DetailItem>내용: {project.description}</DetailItem>
+        <DetailItem>사용스킬: {project.skills}</DetailItem>
+        <DetailItem>기여도: {project.contribution}</DetailItem>
+      </ProjectDetails>
+    </AnimatedProject>
   );
 };
 
@@ -77,11 +113,31 @@ const Project = styled.div`
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
 
   &:hover {
     transform: translateY(-10px);
   }
+
+  &:hover::before {
+    width: 300%;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all 0.5s ease-in-out;
+  }
 `;
+
+const AnimatedProject = styled(animated(Project))``;
 
 const ProjectTitle = styled.h3`
   font-size: 2rem;

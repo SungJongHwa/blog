@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Element as ScrollElement } from "react-scroll";
+import { useSpring, animated } from "@react-spring/web";
 
 const career = [
   {
@@ -10,7 +11,6 @@ const career = [
     details:
       "Assisted in the development of web applications and provided support for existing systems.",
   },
-  ,
   {
     company: "심플랫폼",
     position: "Frontend Developer",
@@ -27,17 +27,29 @@ const CareerSection = () => {
         <SectionTitle>경력사항</SectionTitle>
         <SectionContent>
           {career.map((job, index) => (
-            <CareerItem key={index}>
-              <DetailItem>회사: {job.company}</DetailItem>
-              <DetailItem>직위: {job.position}</DetailItem>
-              <DetailItem>기간: {job.period}</DetailItem>
-              <DetailItem>내용: {job.details}</DetailItem>
-            </CareerItem>
+            <AnimatedCareerItem key={index}>
+              <CareerItem>
+                <DetailItem>회사: {job.company}</DetailItem>
+                <DetailItem>직위: {job.position}</DetailItem>
+                <DetailItem>기간: {job.period}</DetailItem>
+                <DetailItem>내용: {job.details}</DetailItem>
+              </CareerItem>
+            </AnimatedCareerItem>
           ))}
         </SectionContent>
       </Section>
     </ScrollElement>
   );
+};
+
+const AnimatedCareerItem = ({ children }) => {
+  const props = useSpring({
+    from: { opacity: 0, transform: "translate3d(-50px, 0, 0)" },
+    to: { opacity: 1, transform: "translate3d(0, 0, 0)" },
+    config: { duration: 500 },
+  });
+
+  return <animated.div style={props}>{children}</animated.div>;
 };
 
 export default CareerSection;
