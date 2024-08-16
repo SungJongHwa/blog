@@ -13,6 +13,8 @@ const skills1 = [
   "Styled-components",
   "Recoil",
   "Mobx",
+  "Material UI",
+  "D3",
 ];
 
 const skills2 = [

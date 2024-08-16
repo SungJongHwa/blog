@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Element as ScrollElement } from "react-scroll";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
+import dayjs from "dayjs";
 
 const projects = [
   {
@@ -12,34 +13,7 @@ const projects = [
     skills: "React, TypeScript, Redux",
     contribution: "80%",
   },
-  {
-    title: "프로젝트 B",
-    period: "2021.07 - 2021.12",
-    description: "내부 관리 시스템 개발",
-    skills: "Vue, Vuex, Vuetify",
-    contribution: "60%",
-  },
-  {
-    title: "프로젝트 C",
-    period: "2021.01 - 2021.06",
-    description: "모바일 앱 개발",
-    skills: "Flutter, Dart",
-    contribution: "70%",
-  },
-  {
-    title: "프로젝트 D",
-    period: "2020.07 - 2020.12",
-    description: "데이터 분석 플랫폼 개발",
-    skills: "Python, Pandas, Django",
-    contribution: "90%",
-  },
-  {
-    title: "프로젝트 E",
-    period: "2020.01 - 2020.06",
-    description: "e-커머스 사이트 개발",
-    skills: "Magento, PHP, MySQL",
-    contribution: "85%",
-  },
+  // 다른 프로젝트들...
 ];
 
 const ProjectSection = () => {
@@ -52,6 +26,7 @@ const ProjectSection = () => {
             <InViewProject key={index} project={project} />
           ))}
         </SectionContent>
+        <AnniversarySection />
       </Section>
     </ScrollElement>
   );
@@ -76,6 +51,56 @@ const InViewProject = ({ project }) => {
         <DetailItem>기여도: {project.contribution}</DetailItem>
       </ProjectDetails>
     </AnimatedProject>
+  );
+};
+
+const AnniversarySection = () => {
+  const [startDate, setStartDate] = useState("2023-01-01"); // 사귄 시작일
+  const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    const calculateAnniversaries = () => {
+      const start = dayjs(startDate);
+      const today = dayjs();
+      const maxDays = 3000;
+      const anniversaries = [];
+
+      for (let i = 100; i <= maxDays; i += 100) {
+        const anniversaryDate = start.add(i, "day");
+        const isPast = anniversaryDate.isBefore(today);
+        anniversaries.push({
+          days: i,
+          date: anniversaryDate.format("YYYY-MM-DD"),
+          isPast: isPast,
+        });
+      }
+
+      setHistory(anniversaries);
+    };
+
+    calculateAnniversaries();
+  }, [startDate]);
+
+  return (
+    <AnniversaryContainer>
+      <AnniversaryTitle>기념일 히스토리</AnniversaryTitle>
+      <AnniversaryInputContainer>
+        <label htmlFor="startDate">사귄 시작일: </label>
+        <AnniversaryInput
+          type="date"
+          id="startDate"
+          value={startDate}
+          onChange={(e) => setStartDate(e.target.value)}
+        />
+      </AnniversaryInputContainer>
+      <AnniversaryDetails>
+        {history.map((anniversary, index) => (
+          <DetailItem key={index} isPast={anniversary.isPast}>
+            {anniversary.days}일 - {anniversary.date}
+          </DetailItem>
+        ))}
+      </AnniversaryDetails>
+    </AnniversaryContainer>
   );
 };
 
@@ -152,4 +177,35 @@ const ProjectDetails = styled.div`
 
 const DetailItem = styled.p`
   margin: 5px 0;
+  color: ${(props) => (props.isPast ? "#d4d4d4" : "#00adee")};
+`;
+
+const AnniversaryContainer = styled.div`
+  margin-top: 40px;
+  padding: 20px;
+  background: #2e2e2e;
+  border-radius: 10px;
+  color: #d4d4d4;
+`;
+
+const AnniversaryTitle = styled.h3`
+  font-size: 2rem;
+  color: #00adee;
+  margin-bottom: 20px;
+`;
+
+const AnniversaryInputContainer = styled.div`
+  margin-bottom: 20px;
+`;
+
+const AnniversaryInput = styled.input`
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #00adee;
+`;
+
+const AnniversaryDetails = styled.div`
+  font-size: 1.2rem;
+  color: #d4d4d4;
 `;
