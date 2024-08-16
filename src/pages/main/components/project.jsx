@@ -55,7 +55,7 @@ const InViewProject = ({ project }) => {
 };
 
 const AnniversarySection = () => {
-  const [startDate, setStartDate] = useState("2023-01-01"); // 사귄 시작일
+  const [startDate, setStartDate] = useState("2022-04-19"); // 사귄 시작일
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
