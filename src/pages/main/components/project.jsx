@@ -95,9 +95,12 @@ const AnniversarySection = () => {
       </AnniversaryInputContainer>
       <AnniversaryDetails>
         {history.map((anniversary, index) => (
-          <DetailItem key={index} isPast={anniversary.isPast}>
-            {anniversary.days}일 - {anniversary.date}
-          </DetailItem>
+          <AnniversaryCard key={index} isPast={anniversary.isPast}>
+            <CardContent>
+              <CardTitle>{anniversary.days}일</CardTitle>
+              <CardDate>{anniversary.date}</CardDate>
+            </CardContent>
+          </AnniversaryCard>
         ))}
       </AnniversaryDetails>
     </AnniversaryContainer>
@@ -203,9 +206,61 @@ const AnniversaryInput = styled.input`
   font-size: 1rem;
   border-radius: 5px;
   border: 1px solid #00adee;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+
+  &:focus {
+    border-color: #00bfff;
+    outline: none;
+    box-shadow: 0 0 5px #00bfff;
+  }
+
+  &::placeholder {
+    color: #888;
+  }
 `;
 
 const AnniversaryDetails = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+`;
+
+const AnniversaryCard = styled.div`
+  background: ${(props) => (props.isPast ? "#1e1e1e" : "#00adee")};
+  color: ${(props) => (props.isPast ? "#d4d4d4" : "#ffffff")};
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 200px;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const CardContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const CardTitle = styled.h4`
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+`;
+
+const CardDate = styled.p`
   font-size: 1.2rem;
-  color: #d4d4d4;
+  color: ${(props) => (props.isPast ? "#d4d4d4" : "#ffffff")};
 `;
