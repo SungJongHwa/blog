@@ -69,7 +69,7 @@ const projects = [
     content:
       "22년 9월 설립된 스타트업으로 GPU 기반 고성능 서버를 사용해 아티스트가 VFX, Postproduction를 원격으로 접속하여 사용할 수 있는 서비스 개발",
     period: "2024.02 -",
-    description: `현재 회사 내 Front-end 1인(본인), Back-end 1인 개발중\nM2M 사용자 페이지 개발(https://m2m.grida.dev)\nM2M Admin 페이지(관리자 페이지) 개발\n웹 접근성 및 권고사항 준수로 Lighthouse에서 점수를 높임(현재 4가지 항목중 SEO 91점)\n구글 스프레드 시트로 다국어 자동화(i18n)\nMetrial UI와 같은 UI 라이브러리들 사용\nD3.js를 사용하여 한달간 데이터 목록을 선형, 데이터 개수의 비율로 파이차트 구현`,
+    description: `현재 회사 내 Front-end 1인(본인), Back-end 1인 개발중\nM2M 사용자 페이지 개발(https://m2m.grida.dev)\nM2M Admin 페이지(관리자 페이지) 개발\n웹 접근성 및 권고사항 준수로 Lighthouse에서 점수를 높임(현재 4가지 항목중 SEO 91점)\n구글 스프레드 시트로 다국어 자동화(i18n)\nMetrial UI와 같은 UI 라이브러리들 사용\nD3.js를 사용하여 한달간 데이터 목록을 선형, 데이터 개수의 비율로 파이차트 구현\n크로우브라우징 해결`,
     skills: "HTML, CSS, Styled Component, Typescript, React",
   },
 ];
@@ -167,7 +167,7 @@ const SectionTitle = styled.h2`
   }
 
   @media (max-width: 480px) {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 15px;
   }
 `;
@@ -226,7 +226,7 @@ const ProjectTitle = styled.h3`
   }
 
   @media (max-width: 480px) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 8px;
   }
 `;
@@ -271,10 +271,12 @@ const Title = styled.span`
     width: 100%;
     font-size: 1rem;
     margin-bottom: 5px;
+    margin-top: 10px;
   }
 
   @media (max-width: 480px) {
     font-size: 0.9rem;
+    margin-top: 10px;
   }
 `;
 

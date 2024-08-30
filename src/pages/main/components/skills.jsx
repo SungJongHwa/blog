@@ -78,20 +78,40 @@ const SectionTitle = styled.h2`
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: #00adee;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const SkillsWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 200px; /* Adjusted to accommodate two rows */
+  height: 200px;
   overflow: hidden;
   margin-top: 40px;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    height: 150px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 480px) {
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
 `;
 
 const SkillsSlider = styled.div`
   display: flex;
-  height: 50%; /* Adjusted for two rows */
+  height: 50%;
   overflow: hidden;
 `;
 
@@ -122,5 +142,15 @@ const SkillItem = styled.div`
   &:hover {
     transform: scale(1.1);
     color: #00adee;
+  }
+
+  @media (max-width: 768px) {
+    margin: 0 40px;
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    margin: 0 20px;
+    font-size: 1rem;
   }
 `;
