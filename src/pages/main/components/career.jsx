@@ -64,6 +64,11 @@ const Section = styled.div`
   &:hover {
     transform: translateY(-10px);
   }
+
+  @media (max-width: 768px) {
+    padding: 10px 15px;
+    margin: 10px 0;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -79,10 +84,35 @@ const SectionTitle = styled.h2`
     left: -40px;
     top: -10px;
   }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 15px;
+
+    &:before {
+      left: -30px;
+      top: -5px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    &:before {
+      display: none;
+    }
+  }
 `;
 const SectionContent = styled.div`
   font-size: 1.2rem;
   color: #d4d4d4;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const CareerItem = styled.div`
@@ -97,6 +127,16 @@ const CareerItem = styled.div`
   &:hover {
     transform: scale(1.02);
     background: #383838;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 10px;
+    padding: 8px;
   }
 `;
 
@@ -113,5 +153,23 @@ const DetailItem = styled.p`
     background: #00adee;
     border-radius: 50%;
     margin-right: 10px;
+  }
+
+  @media (max-width: 768px) {
+    margin: 4px 0;
+
+    &::before {
+      width: 5px;
+      height: 5px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin: 3px 0;
+
+    &::before {
+      width: 4px;
+      height: 4px;
+    }
   }
 `;

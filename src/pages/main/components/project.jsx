@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Element as ScrollElement } from "react-scroll";
 import { useSpring, animated } from "react-spring";
@@ -40,7 +40,7 @@ const projects = [
       "SK에코플랜트의 건설 현장에서 날씨, 장비착용 여부, 도면등록, 실시간 CCTV 등을 이용하여 건설안전을 위한 프로젝트",
     period: "2023.7 - 2023.10",
     description:
-      "주간 날씨, 장비착용 여부, 최근 7일간 근로자들의 웰니스 막대차트 등을 나타내는 대시보드 구현\n근로자들의 장비착용 여부를 특정권한(ex 팀장)을 가진 사람이 등록,수정,삭제하는 페이지 구현, 삭제 할 수 있도록 구현\n현장 위치별 도면(사진)을 등록하여 현장 정보 제공하는 페이지 구현\n차트를 사용하여 주간 데이터가 보이도록 구현\n",
+      "주간 날씨, 장비착용 여부, 최근 7일간 근로자들의 웰니스 막대차트 등을 나타내는 대시보드 구현\n근로자들의 장비착용 여부를 특정권한(ex 팀장)을 가진 사람이 등록,수정,삭제하는 페이지 구현\n현장 위치별 도면(사진)을 등록하여 현장 정보 제공하는 페이지 구현\n차트를 사용하여 주간 데이터가 보이도록 구현\n",
     skills: "HTML, CSS, Jasvascript, Vue, Jquery",
     contribution: "40%",
   },
@@ -97,6 +97,14 @@ const InViewProject = ({ project }) => {
     config: { duration: 400 },
   });
 
+  const renderContentWithLineBreaks = (text) =>
+    text.split("\n").map((line, index) => (
+      <span key={index}>
+        {line}
+        <br />
+      </span>
+    ));
+
   return (
     <AnimatedProject ref={ref} style={props}>
       <ProjectTitle>{project.title}</ProjectTitle>
@@ -115,7 +123,7 @@ const InViewProject = ({ project }) => {
         </DetailItem>
         <DetailItem>
           <Title>내용</Title>
-          <Content>{project.description}</Content>
+          <Content>{renderContentWithLineBreaks(project.description)}</Content>
         </DetailItem>
         <DetailItem>
           <Title>사용스킬</Title>
@@ -136,11 +144,15 @@ const InViewProject = ({ project }) => {
 export default ProjectSection;
 
 const Section = styled.div`
-  padding: 10px 20px;
+  padding: 20px;
   background: #2e2e2e;
   border-radius: 15px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    padding: 15px 10px;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -148,11 +160,29 @@ const SectionTitle = styled.h2`
   font-size: 2rem;
   margin-bottom: 30px;
   color: #00adee;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
 `;
 
 const SectionContent = styled.div`
   font-size: 1.1rem;
   color: #d4d4d4;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Project = styled.div`
@@ -171,6 +201,16 @@ const Project = styled.div`
     z-index: 10;
     background: #4a4a4a;
   }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
 `;
 
 const AnimatedProject = styled(animated(Project))``;
@@ -179,29 +219,74 @@ const ProjectTitle = styled.h3`
   font-size: 1.8rem;
   color: #ffffff;
   margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
 `;
 
 const ProjectDetails = styled.div`
   font-size: 1rem;
   color: #b0b0b0;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const DetailItem = styled.div`
   display: flex;
+  align-items: center;
   margin: 16px 0;
   color: #d4d4d4;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 0;
+  }
+
+  @media (max-width: 480px) {
+    margin: 8px 0;
+  }
 `;
+
 const Title = styled.span`
-  min-width: 100px;
+  width: 120px; /* 고정 너비 설정 */
   font-weight: bold;
   margin-right: 10px;
-  color: #fffff;
+  color: #ffffff;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Content = styled.span`
   flex-grow: 1;
   white-space: pre-wrap;
-  line-height: 1.5; // 줄 간격을 늘려 가독성 향상
-  margin-top: 5px; // 각 줄 간 여백 추가
-  margin-bottom: 10px; // 각 줄 간 여백 추가
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;

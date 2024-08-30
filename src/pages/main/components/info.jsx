@@ -42,6 +42,16 @@ const IntroductionSection = () => {
                     </ul>
                   </InfoValue>
                 </InfoItem>
+
+                <InfoItem>
+                  <InfoLabel>교육사항:</InfoLabel>
+                  <InfoValue>
+                    <ul>
+                      <li>위코드 코딩 부트캠프 37기</li>
+                      <li>22.08 ~ 22.11</li>
+                    </ul>
+                  </InfoValue>
+                </InfoItem>
               </InfoList>
             </SectionContent>
           </Content>
@@ -69,13 +79,17 @@ const Section = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 15px 0;
+    padding: 15px 10px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 5px;
   }
 `;
 
 const AnimatedSection = styled(animated.div)`
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   max-width: 800px;
@@ -85,6 +99,11 @@ const AnimatedSection = styled(animated.div)`
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 10px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    padding: 5px;
   }
 `;
 
@@ -104,6 +123,11 @@ const ProfilePhoto = styled.img`
     margin-right: 0;
     margin-bottom: 20px;
   }
+
+  @media (max-width: 480px) {
+    width: 120px;
+    margin-bottom: 15px;
+  }
 `;
 
 const Content = styled.div`
@@ -120,6 +144,10 @@ const SectionTitle = styled.h2`
   @media (max-width: 768px) {
     font-size: 2rem;
   }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const SectionContent = styled.div`
@@ -128,6 +156,10 @@ const SectionContent = styled.div`
 
   @media (max-width: 768px) {
     font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
   }
 `;
 
@@ -143,6 +175,10 @@ const InfoItem = styled.li`
   @media (max-width: 768px) {
     margin-bottom: 15px;
   }
+
+  @media (max-width: 480px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const InfoLabel = styled.span`
@@ -152,10 +188,15 @@ const InfoLabel = styled.span`
   margin-bottom: 5px;
   transition: color 0.3s ease-in-out;
 
-  // &:hover {
-  //   color: #ffaa00;
-  // }
+  &:hover {
+    color: #ffaa00;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
+
 const InfoValue = styled.span`
   color: #d4d4d4;
   display: block;
@@ -163,6 +204,10 @@ const InfoValue = styled.span`
 
   @media (max-width: 768px) {
     margin-left: 0;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
   }
 `;
 
