@@ -1,6 +1,6 @@
 import React from "react";
 import { useFrame, Canvas, useThree } from "@react-three/fiber";
-import { OrbitControls, Stars, Text3D } from "@react-three/drei";
+import { OrbitControls, Stars, Text3D, Box } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { useSpring } from "react-spring";
 import styled from "styled-components";
@@ -53,33 +53,44 @@ const MovingText = ({ handleClick }) => {
   });
 
   return (
-    <Text3D
-      ref={ref}
-      position={[-1, 0, 0]}
-      rotation={[0, 0, 0]}
-      size={0.7}
-      height={0.3}
-      curveSegments={32}
-      bevelEnabled
-      bevelThickness={0.05}
-      bevelSize={0.03}
-      bevelOffset={0}
-      bevelSegments={8}
-      font="/fonts/helvetiker_bold.typeface.json"
-      onClick={handleClick}
-      onPointerOver={handlePointerOver}
-      onPointerOut={handlePointerOut}
-    >
-      Click
-      <meshStandardMaterial
-        attach="material"
-        color="lightblue"
-        emissive="#00adee"
-        emissiveIntensity={0.8}
-        roughness={0.4}
-        metalness={0.5}
+    <group>
+      {" "}
+      <Box
+        args={[3, 1, 1]}
+        position={[-1, 0, 0]}
+        onClick={handleClick}
+        onPointerOver={handlePointerOver}
+        onPointerOut={handlePointerOut}
+        visible={false}
       />
-    </Text3D>
+      <Text3D
+        ref={ref}
+        position={[-1, 0, 0]}
+        rotation={[0, 0, 0]}
+        size={0.7}
+        height={0.3}
+        curveSegments={32}
+        bevelEnabled
+        bevelThickness={0.05}
+        bevelSize={0.03}
+        bevelOffset={0}
+        bevelSegments={8}
+        font="/fonts/helvetiker_bold.typeface.json"
+        onClick={handleClick}
+        onPointerOver={handlePointerOver}
+        onPointerOut={handlePointerOut}
+      >
+        Click
+        <meshStandardMaterial
+          attach="material"
+          color="lightblue"
+          emissive="#00adee"
+          emissiveIntensity={0.8}
+          roughness={0.4}
+          metalness={0.5}
+        />
+      </Text3D>
+    </group>
   );
 };
 
