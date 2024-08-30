@@ -31,9 +31,9 @@ const MainPage = () => {
             <CanvasSection setShowMainContent={setShowMainContent} />
           ) : (
             <MainContainer>
-              <ScrollLinkContainer />
               <Sections>
                 <IntroductionSection />
+                <ScrollLinkContainer />
                 <CareerSection />
                 <SkillsSection />
                 <ProjectSection />

@@ -54,7 +54,7 @@ const IntroductionSection = () => {
 export default IntroductionSection;
 
 const Section = styled.div`
-  padding: 20px 0;
+  padding: 5px 0;
   background: linear-gradient(135deg, #1e1e1e, #2e2e2e),
     url("/asset/background.png");
   background-size: cover;
@@ -65,6 +65,7 @@ const Section = styled.div`
 
   &:hover {
     transform: translateY(-10px);
+    background: linear-gradient(135deg, #2e2e2e, #3e3e3e);
   }
 
   @media (max-width: 768px) {
@@ -73,7 +74,8 @@ const Section = styled.div`
 `;
 
 const AnimatedSection = styled(animated.div)`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   align-items: center;
   justify-content: center;
   max-width: 800px;
@@ -89,8 +91,13 @@ const AnimatedSection = styled(animated.div)`
 const ProfilePhoto = styled.img`
   width: 200px;
   height: auto;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-right: 40px;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   @media (max-width: 768px) {
     width: 150px;
@@ -108,6 +115,7 @@ const SectionTitle = styled.h2`
   margin-bottom: 20px;
   color: #00adee;
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
     font-size: 2rem;
@@ -142,8 +150,12 @@ const InfoLabel = styled.span`
   color: #00adee;
   display: block;
   margin-bottom: 5px;
-`;
+  transition: color 0.3s ease-in-out;
 
+  // &:hover {
+  //   color: #ffaa00;
+  // }
+`;
 const InfoValue = styled.span`
   color: #d4d4d4;
   display: block;

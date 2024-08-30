@@ -12,13 +12,14 @@ import { useSpring, animated } from "react-spring";
 
 import ScrollTop from "./pages/component/ScrollTop";
 import MainPage from "./pages/main/page";
+import Date from "./pages/main/components/date";
 
 const App = () => {
   return (
     <React.Fragment>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        {/* <Route path="/home" element={<HomePage />} /> */}
+        <Route path="/date" element={<Date />} />
         {/* <Route path="/about" element={<AboutPage />} /> */}
       </Routes>
 
