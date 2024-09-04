@@ -54,7 +54,6 @@ const MovingText = ({ handleClick }) => {
 
   return (
     <group>
-      {" "}
       <Box
         args={[3, 1, 1]}
         position={[-1, 0, 0]}

@@ -6,6 +6,13 @@ import { useInView } from "react-intersection-observer";
 
 const projects = [
   {
+    title: "ERP 프로그램 개발",
+    content: "대학생 시절 프로젝트로 회사의 ERP 프로그램을 만드는 프로젝트",
+    period: "2022.4 - 2022.06",
+    description: `C# WPF을 이용하여 ERP 프로그램을 조별과제로 수행함\n시연 동영상 - https://www.youtube.com/watch?v=6XCTlB9zZMU`,
+    skills: "C# WPF, Mysql",
+  },
+  {
     title: "클라이언트 인증키 목록",
     content:
       "내부 과제로 자체 플랫폼 인증키 목록 페이지 구현 서버에서 발급된 인증키 관리",
@@ -60,7 +67,7 @@ const projects = [
       "파리 올림픽 배드민턴 경기를 분석하여 영상, 데이터를 보여주는 프로젝트",
     period: "2023.11 - 2024.1",
     description:
-      "기술 스택 선정 및 검토(React 도입)\n환경설정, 퍼블리싱으로 적용 등 프로젝트 생성부터 개발 초기세팅",
+      "기술 스택 검토 및 선정(React 도입)\n환경설정, 퍼블리싱 적용 등 프로젝트 생성부터 개발 초기세팅",
     skills: "HTML, CSS, Jasvascript, React, Next.js",
     contribution: "25%",
   },
@@ -69,7 +76,7 @@ const projects = [
     content:
       "22년 9월 설립된 스타트업으로 GPU 기반 고성능 서버를 사용해 아티스트가 VFX, Postproduction를 원격으로 접속하여 사용할 수 있는 서비스 개발",
     period: "2024.02 -",
-    description: `현재 회사 내 Front-end 1인(본인), Back-end 1인 개발중\nM2M 사용자 페이지 개발(https://m2m.grida.dev)\nM2M Admin 페이지(관리자 페이지) 개발\n웹 접근성 및 권고사항 준수로 Lighthouse에서 점수를 높임(현재 4가지 항목중 SEO 91점)\n구글 스프레드 시트로 다국어 자동화(i18n)\nMetrial UI와 같은 UI 라이브러리들 사용\nD3.js를 사용하여 한달간 데이터 목록을 선형, 데이터 개수의 비율로 파이차트 구현\n크로우브라우징 해결`,
+    description: `현재 회사 내 Front-end 1인(본인), Back-end 1인 개발중\nM2M 사용자 페이지 개발(https://m2m.grida.dev)\nM2M Admin 페이지(관리자 페이지) 개발\nMac Tunnelblick으로 Open VPN 설정\n웹 접근성 및 권고사항 준수로 Lighthouse에서 점수를 높임(현재 4가지 항목중 SEO 91점)\n구글 스프레드 시트로 다국어 자동화(i18n)\nMetrial UI와 같은 UI 라이브러리들 사용\nD3.js를 사용하여 최근 데이터 목록을 선형, 데이터 개수의 비율로 파이차트 구현\n`,
     skills: "HTML, CSS, Styled Component, Typescript, React",
   },
 ];
@@ -78,7 +85,7 @@ const ProjectSection = () => {
   return (
     <ScrollElement name="project">
       <Section>
-        <SectionTitle>실무 프로젝트</SectionTitle>
+        <SectionTitle>프로젝트</SectionTitle>
         <SectionContent>
           {projects.map((project, index) => (
             <InViewProject key={index} project={project} />
@@ -98,12 +105,14 @@ const InViewProject = ({ project }) => {
   });
 
   const renderContentWithLineBreaks = (text) =>
-    text.split("\n").map((line, index) => (
-      <span key={index}>
-        {line}
-        <br />
-      </span>
-    ));
+    text
+      .split("\n")
+      .filter((line) => line.trim() !== "")
+      .map((line, index) => (
+        <span key={index} style={{ display: "block", margin: "10px 0" }}>
+          • {line}
+        </span>
+      ));
 
   return (
     <AnimatedProject ref={ref} style={props}>
@@ -126,7 +135,7 @@ const InViewProject = ({ project }) => {
           <Content>{renderContentWithLineBreaks(project.description)}</Content>
         </DetailItem>
         <DetailItem>
-          <Title>사용스킬</Title>
+          <Title>기술스택</Title>
           <Content>{project.skills}</Content>
         </DetailItem>
 

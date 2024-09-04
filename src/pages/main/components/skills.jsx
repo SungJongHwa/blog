@@ -91,10 +91,10 @@ const SectionTitle = styled.h2`
 const SkillsWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 150px;
   overflow: hidden;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: 35px;
+  margin-bottom: 0px;
 
   @media (max-width: 768px) {
     height: 150px;
@@ -111,7 +111,7 @@ const SkillsWrapper = styled.div`
 
 const SkillsSlider = styled.div`
   display: flex;
-  height: 50%;
+  height: 60%;
   overflow: hidden;
 `;
 
@@ -119,7 +119,7 @@ const SkillRow = styled.div`
   display: flex;
   flex-wrap: nowrap;
   white-space: nowrap;
-  animation: scroll 45s linear infinite;
+  animation: scroll 25s linear infinite;
 
   @keyframes scroll {
     0% {
