@@ -72,6 +72,14 @@ const projects = [
     contribution: "25%",
   },
   {
+    title: "매크로그래프 홈페이지 운영 및 유지보수",
+    content:
+      "매크로 그래프 회사 홈페이지(http://www.macrograph.co.kr) 운영 및 수정사항 반영",
+    period: "2024.04 -",
+    description: `홈페이지 운영 및 수정사항 반영`,
+    skills: "HTML, CSS, Jquery",
+  },
+  {
     title: "M2M 및 M2M Admin",
     content:
       "22년 9월 설립된 스타트업으로 GPU 기반 고성능 서버를 사용해 아티스트가 VFX, Postproduction를 원격으로 접속하여 사용할 수 있는 서비스 개발",
