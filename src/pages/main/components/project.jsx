@@ -72,11 +72,11 @@ const projects = [
     contribution: "25%",
   },
   {
-    title: "매크로그래프 홈페이지 운영 및 유지보수",
+    title: "매크로그래프 홈페이지 개발 및 유지보수",
     content:
-      "매크로 그래프 회사 홈페이지(http://www.macrograph.co.kr) 운영 및 수정사항 반영",
+      "매크로 그래프 회사 홈페이지(http://www.macrograph.co.kr) 개발 및 유지보수",
     period: "2024.04 -",
-    description: `홈페이지 운영 및 수정사항 반영`,
+    description: `홈페이지 운영 및 유지보수`,
     skills: "HTML, CSS, Jquery",
   },
   {
