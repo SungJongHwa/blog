@@ -33,6 +33,7 @@ const IntroductionSection = () => {
                     <Link href="tel:010-2408-0329">010-2408-0329</Link>
                   </InfoValue>
                 </InfoItem>
+
                 <InfoItem>
                   <InfoLabel>학력사항:</InfoLabel>
                   <InfoValue>
@@ -188,9 +189,9 @@ const InfoLabel = styled.span`
   margin-bottom: 5px;
   transition: color 0.3s ease-in-out;
 
-  &:hover {
-    color: #ffaa00;
-  }
+  // &:hover {
+  //   color: #ffaa00;
+  // }
 
   @media (max-width: 480px) {
     font-size: 1rem;
