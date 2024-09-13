@@ -131,7 +131,8 @@ const InViewProject = ({ project }) => {
       ));
 
   return (
-    <AnimatedProject ref={ref} style={props}>
+    // <AnimatedProject ref={ref} style={props}>
+    <AnimatedProject ref={ref}>
       <ProjectTitle>{project.title}</ProjectTitle>
       <ProjectDetails>
         {/* <DetailItem>
