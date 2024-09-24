@@ -5,13 +5,13 @@ import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 
 const projects = [
-  {
-    title: "ERP 프로그램 개발",
-    content: "학부과정 프로젝트로 회사의 ERP 프로그램을 만드는 프로젝트",
-    period: "2022.4 ~ 2022.06",
-    description: `C# WPF을 이용하여 ERP 프로그램을 조별과제로 수행함\n시연 동영상 - https://www.youtube.com/watch?v=6XCTlB9zZMU`,
-    skills: "C# WPF, Mysql",
-  },
+  // {
+  //   title: "ERP 프로그램 개발",
+  //   content: "학부과정 프로젝트로 회사의 ERP 프로그램을 만드는 프로젝트",
+  //   period: "2022.4 ~ 2022.06",
+  //   description: `C# WPF을 이용하여 ERP 프로그램을 조별과제로 수행함\n시연 동영상 - https://www.youtube.com/watch?v=6XCTlB9zZMU`,
+  //   skills: "C# WPF, Mysql",
+  // },
   {
     title: "클라이언트 인증키 목록",
     content:
