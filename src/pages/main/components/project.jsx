@@ -92,8 +92,9 @@ const projects = [
     content:
       "아티스트를 고용, 아티스트 구직, 프로젝트를 등록, 기업서비스, 결제 등을 제공하는 채용 플랫폼 개발하는 프로젝트",
     period: "2024.09 ~ 진행중",
-    description: `현재 Figma 디자인 중인 단계로 디자인이 되는 순차적으로 Figma Plugin인 Builder.io를 사용하여 퍼블리싱 자동화 및 정리 진행중\n퍼블리싱 후 즉시 개발할 수 있도록 React 세팅과 동시에 퍼블리싱 이전 중`,
+    description: `Figma Plugin인 Builder.io를 사용하여 퍼블리싱 자동화 및 정리\n개발 초기 단계로 개발 환경 세팅과 동시에 개발 진행 중\n소셜로그인 구현`,
     skills: "HTML, CSS, Styled Component, React",
+    contribution: "100%",
   },
 ];
 
