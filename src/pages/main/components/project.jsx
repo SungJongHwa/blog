@@ -77,7 +77,7 @@ const projects = [
       "매크로 그래프 회사 홈페이지(http://www.macrograph.co.kr) 개발 및 유지보수",
     period: "2024.04 ~ 진행중",
     description: `홈페이지 운영 및 유지보수`,
-    skills: "HTML, CSS, Jquery",
+    skills: "HTML, CSS, Javascript, Jquery",
   },
   {
     title: "M2M 및 M2M Admin 개발 및 유지보수",
@@ -92,8 +92,8 @@ const projects = [
     content:
       "아티스트를 고용, 아티스트 구직, 프로젝트를 등록, 기업서비스, 결제 등을 제공하는 채용 플랫폼 개발하는 프로젝트",
     period: "2024.09 ~ 진행중",
-    description: `Figma Plugin인 Builder.io를 사용하여 퍼블리싱 자동화 및 정리\n개발 초기 단계로 개발 환경 세팅과 동시에 개발 진행 중\n소셜로그인 구현`,
-    skills: "HTML, CSS, Styled Component, React",
+    description: `Figma Plugin Builder.io를 사용하여 퍼블리싱 자동화 및 정리\n개발 초기세팅\n플랫폼 개발 진행 중\n소셜로그인 구현\nMUI 사용\nZustand로 상태관리`,
+    skills: "HTML, CSS, Styled Component, Javascript, React",
     contribution: "100%",
   },
 ];
