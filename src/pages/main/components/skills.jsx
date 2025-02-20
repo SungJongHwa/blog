@@ -15,6 +15,7 @@ const skills1 = [
   "Mobx",
   "Material UI",
   "D3",
+  "Zustand",
 ];
 
 const skills2 = [
